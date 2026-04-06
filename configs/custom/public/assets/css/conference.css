@@ -1,0 +1,210 @@
+/* ============================================================
+   PowerShell DevOps Global Summit – Gitea custom landing page
+   Uses Gitea/Fomantic CSS variables → adapts to light + dark
+   automatically without any JS or media-query hacks.
+   ============================================================ */
+
+/* ── Page wrapper ─────────────────────────────────────────── */
+.conf-home {
+  min-height: calc(100vh - 6rem);
+}
+
+/* ── Shared container ─────────────────────────────────────── */
+.conf-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* ── Hero ─────────────────────────────────────────────────── */
+.conf-hero {
+  padding: 4rem 1.5rem 3.5rem;
+  text-align: center;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.conf-logo-link {
+  display: block;
+  width: fit-content;
+  margin: 0 auto 1.75rem;
+  border: none;
+  text-decoration: none;
+}
+
+.conf-logo {
+  display: block;
+  width: 180px;
+  height: auto;
+  filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.15));
+  transition: transform 0.15s ease, filter 0.15s ease;
+}
+
+.conf-logo-link:hover .conf-logo {
+  transform: scale(1.06);
+  filter: drop-shadow(0 6px 24px rgba(0, 0, 0, 0.25));
+}
+
+.conf-title {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 700;
+  margin: 0 0 0.6rem;
+  line-height: 1.2;
+  color: var(--color-text);
+}
+
+.conf-subtitle {
+  font-size: 1.125rem;
+  margin: 0 0 0.75rem;
+  color: var(--color-text-light-2, var(--color-text));
+}
+
+.conf-description {
+  font-size: 1rem;
+  max-width: 560px;
+  margin: 0 auto 2rem;
+  color: var(--color-text-light-2, var(--color-text));
+  opacity: 0.82;
+}
+
+.conf-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+/* ── Topic tags ───────────────────────────────────────────── */
+.conf-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  justify-content: center;
+}
+
+.conf-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: 99px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  background: var(--color-secondary-bg, rgba(128, 128, 128, 0.1));
+  border: 1px solid var(--color-border);
+  color: var(--color-text-light-2, var(--color-text));
+}
+
+.conf-tag svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+/* ── Cards section ────────────────────────────────────────── */
+.conf-section {
+  padding: 3rem 1.5rem;
+}
+
+.conf-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+/* ── Individual card ──────────────────────────────────────── */
+.conf-card {
+  background: var(--color-card, var(--color-secondary-bg));
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.conf-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.conf-card-header svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  color: var(--color-primary);
+}
+
+.conf-card-header h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--color-text);
+}
+
+.conf-card-body {
+  margin: 0;
+  color: var(--color-text-light-2, var(--color-text));
+  font-size: 0.93rem;
+}
+
+/* ── Code block ───────────────────────────────────────────── */
+.conf-code {
+  background: var(--color-code-bg, rgba(0, 0, 0, 0.06));
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 0.85rem 1rem;
+  font-size: 0.82rem;
+  line-height: 1.6;
+  overflow-x: auto;
+  margin: 0;
+  color: var(--color-text);
+}
+
+.conf-hint {
+  font-size: 0.82rem;
+  color: var(--color-text-light-2, var(--color-text));
+  opacity: 0.75;
+  margin: 0;
+}
+
+/* ── List ─────────────────────────────────────────────────── */
+.conf-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.conf-list li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.conf-list li strong {
+  font-size: 0.93rem;
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.conf-list li span {
+  font-size: 0.82rem;
+  color: var(--color-text-light-2, var(--color-text));
+  opacity: 0.78;
+}
+
+/* ── Link list variant ────────────────────────────────────── */
+.conf-links li a {
+  font-size: 0.93rem;
+  font-weight: 500;
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.conf-links li a:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,31 @@
+# Set base image
+FROM mcr.microsoft.com/windows/server:ltsc2025
+
+SHELL ["powershell.exe", "-ExecutionPolicy bypass", "-command"]
+
+# install pwsh
+COPY install-pwsh.ps1 install-pwsh.ps1
+RUN ./install-pwsh.ps1;
+
+# create certs directory
+#RUN New-Item -ItemType Directory -Path C:/Certs | Out-Null;
+
+# install choco,git and configure git
+RUN iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'));\
+    choco install git -yf;\
+    choco install nodejs -yf;
+
+WORKDIR C:/runner
+
+# These are runtime-provided values (set with `-e ...`)
+ENV GITEA_INSTANCE="" \
+    GITEA_REGISTRATION_TOKEN="" \
+    GITEA_LABEL="" \
+    GITEA_RUNNER_NAME="" \
+    GITEA_EPHEMERAL=""
+
+# NOTE: This COPY requires building with context set to the repo root (e.g. `C:\gitea`).
+COPY act_runner.exe act_runner.exe
+COPY entrypoint.ps1 entrypoint.ps1
+
+ENTRYPOINT ["pwsh","-NoLogo","-NoProfile","-File","./entrypoint.ps1"]

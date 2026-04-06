@@ -1,0 +1,112 @@
+{{template "base/head" .}}
+<div role="main" aria-label="PowerShell DevOps Global Summit" class="page-content home conf-home">
+
+  {{/* ── Hero ───────────────────────────────────────────── */}}
+  <section class="conf-hero">
+    <div class="conf-container">
+      <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener noreferrer" title="Learn more about this project" class="conf-logo-link">
+        <img src="{{AssetUrlPrefix}}/img/logo.png" alt="PowerShell DevOps Global Summit" class="conf-logo">
+      </a>
+      <h1 class="conf-title">PowerShell DevOps Global Summit</h1>
+      <p class="conf-subtitle">Talk hub: <strong>PowerShell + Gitea — DevOps that ships</strong></p>
+      <p class="conf-description">Demo repos, copy/paste commands, and attendee resources — all in one place.</p>
+      <div class="conf-actions">
+        <a class="ui primary button large" href="{{AppSubUrl}}/explore/repos">
+          {{svg "octicon-repo"}} Browse Demo Repos
+        </a>
+        <a class="ui button large" href="{{AppSubUrl}}/explore/organizations">
+          {{svg "octicon-organization"}} Organizations
+        </a>
+        {{if not .IsSigned}}
+        <a class="ui button large" href="{{AppSubUrl}}/user/login">
+          {{svg "octicon-sign-in"}} Sign In
+        </a>
+        {{end}}
+      </div>
+      <div class="conf-tags">
+        <span class="conf-tag">{{svg "octicon-terminal"}} PowerShell</span>
+        <span class="conf-tag">{{svg "octicon-rocket"}} CI/CD</span>
+        <span class="conf-tag">{{svg "octicon-shield"}} Supply Chain</span>
+        <span class="conf-tag">{{svg "octicon-git-branch"}} Git</span>
+        <span class="conf-tag">{{svg "octicon-package"}} Artifacts</span>
+      </div>
+    </div>
+  </section>
+
+  {{/* ── Cards ──────────────────────────────────────────── */}}
+  <section class="conf-section">
+    <div class="conf-container">
+      <div class="conf-grid">
+
+        {{/* Quick Start */}}
+        <div class="conf-card">
+          <div class="conf-card-header">
+            {{svg "octicon-terminal"}}
+            <h3>Quick Start</h3>
+          </div>
+          <p class="conf-card-body">Clone the demo repo and run the bootstrap:</p>
+          <pre class="conf-code"><code>git clone {{AppSubUrl}}/your-org/demo-repo
+cd demo-repo
+pwsh ./scripts/bootstrap.ps1</code></pre>
+          <p class="conf-hint">Replace <code>your-org</code> with the org shown on stage.</p>
+        </div>
+
+        {{/* Topics */}}
+        <div class="conf-card">
+          <div class="conf-card-header">
+            {{svg "octicon-play"}}
+            <h3>What We'll Cover</h3>
+          </div>
+          <ul class="conf-list">
+            <li>
+              <strong>Gitea Actions + PowerShell</strong>
+              <span>Reusable workflows, module caching, and fast feedback.</span>
+            </li>
+            <li>
+              <strong>Secure Builds</strong>
+              <span>Signing, secrets, and least-privilege runners.</span>
+            </li>
+            <li>
+              <strong>Operational Patterns</strong>
+              <span>Self-hosting, upgrades, and reliable automation.</span>
+            </li>
+            <li>
+              <strong>Supply Chain Security</strong>
+              <span>Artifact signing, SBOMs, and dependency auditing.</span>
+            </li>
+          </ul>
+        </div>
+
+        {{/* Resources */}}
+        <div class="conf-card">
+          <div class="conf-card-header">
+            {{svg "octicon-link"}}
+            <h3>Attendee Resources</h3>
+          </div>
+          <ul class="conf-list conf-links">
+            <li>
+              <a href="{{AppSubUrl}}/explore/repos?q=demo&sort=recentupdate">All Demo Repos</a>
+              <span>Browse all session repositories.</span>
+            </li>
+            <li>
+              <a href="{{AppSubUrl}}/assets/slides.pdf">Slides (PDF)</a>
+              <span>Download the presentation slides.</span>
+            </li>
+            <li>
+              {{/* Link appears to be the session short — surprise awaits */}}
+              <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" title="https://www.youtube.com/shorts/8MTWLX7HUBA" rel="noopener noreferrer" target="_blank">Session Recording ↗</a>
+              <span>Watch the session on YouTube.</span>
+            </li>
+            <li>
+              <a href="{{AppSubUrl}}/explore/users">All Speakers</a>
+              <span>Explore contributor profiles.</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</div>
+{{template "base/footer" .}}

@@ -1,0 +1,17 @@
+services:
+  gitea-runner:
+    image: macinally/act_runner:windows-ltsc
+    deploy:
+      replicas: 2    
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      GITEA_INSTANCE: "https://gittogallery:4443"
+      GITEA_REGISTRATION_TOKEN: "${GITEA_REGISTRATION_TOKEN}"
+      GITEA_RUNNER_NAME: "win-docker"
+      GITEA_EPHEMERAL: "0"
+      GITEA_LABELS: "windows2025:host,windows-latest:host"
+    volumes:
+      - ./certs:C:/Certs:ro
+

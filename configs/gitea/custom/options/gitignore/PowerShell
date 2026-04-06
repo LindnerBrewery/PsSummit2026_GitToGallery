@@ -1,0 +1,54 @@
+# PowerShell Module / Script Project
+# Gitea .gitignore template — filepath: custom/options/gitignore/PowerShell
+
+# Build output
+output/
+out/
+Release/
+Debug/
+nupkg/
+*.nupkg
+
+# PSake / InvokeBuild / ModuleBuilder
+build/
+staging/
+
+# Dependency cache (PSDepend / RequiredModules)
+.dependencies/
+modules/
+
+# Pester test results
+testResults*.xml
+*TestResults*.xml
+coverage.xml
+*.coverage
+
+# PowerShell module build artifacts
+*.zip
+*.tar.gz
+
+# User secrets and tokens
+*.secret
+*.token
+*.cred
+
+# Certificate files
+*.pfx
+*.pem
+*.key
+*.cer
+*.crt
+*.p12
+
+# IDE / Editor
+.vscode/settings.json
+.vscode/launch.json
+*.suo
+*.user
+*.sln.docstates
+
+# OS files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store

@@ -1,0 +1,17 @@
+services:
+  lldap:
+    image: lldap/lldap:stable
+    container_name: lldap
+    ports:
+      - "3890:3890"    # LDAP
+      - "17170:17170"  # Web UI
+    environment:
+      - LLDAP_LDAP_BASE_DN=dc=demo,dc=local
+      - LLDAP_LDAP_USER_EMAIL=admin@demo.local
+      - LLDAP_LDAP_USER_PASS=test123!
+      # crypto secrets (LLDAP expects you to set these)
+      - LLDAP_JWT_SECRET=please-change-this-jwt-secret
+      - LLDAP_KEY_SEED=please-change-this-key-seed
+    volumes:
+      - ./lldap_data:/data
+    restart: unless-stopped
